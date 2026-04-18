@@ -106,6 +106,7 @@ if query := st.chat_input("E.g. 'Teach me photosynthesis and test me'"):
 
     with st.chat_message("assistant"):
         with st.spinner("Agents orchestrating..."):
+            final = ""
             try:
                 result = study_graph.invoke(
                     {
@@ -127,7 +128,11 @@ if query := st.chat_input("E.g. 'Teach me photosynthesis and test me'"):
                     "no quotes or spaces, save the file, then **Rerun** the app."
                 )
                 st.error(final)
+            except Exception as e:
+                final = f"**Unexpected error:** {e}"
+                st.error(final)
             else:
                 st.markdown(final)
 
-    st.session_state.messages.append({"role": "assistant", "content": final})
+    if final:
+        st.session_state.messages.append({"role": "assistant", "content": final})

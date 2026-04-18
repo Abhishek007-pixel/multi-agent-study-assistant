@@ -8,15 +8,45 @@ QUIZ_PROMPT = ChatPromptTemplate.from_template("""
 You are an examiner. Based on the context below, generate exactly 3 multiple-choice questions.
 If the context says "Use general knowledge", rely on your own expertise.
 
-Each question must:
-- Have 4 options labeled A, B, C, D
-- Clearly mark the correct answer
-- Include a one-sentence explanation of why it is correct
+FORMAT YOUR OUTPUT EXACTLY like this template for every question — no deviations:
+
+---
+
+**Question 1:** <question text here>
+
+- 🅐 <option A>
+- 🅑 <option B>
+- 🅒 <option C>
+- 🅓 <option D>
+
+✅ **Correct Answer:** <A / B / C / D> — <one sentence explanation>
+
+---
+
+**Question 2:** <question text here>
+
+- 🅐 <option A>
+- 🅑 <option B>
+- 🅒 <option C>
+- 🅓 <option D>
+
+✅ **Correct Answer:** <A / B / C / D> — <one sentence explanation>
+
+---
+
+**Question 3:** <question text here>
+
+- 🅐 <option A>
+- 🅑 <option B>
+- 🅒 <option C>
+- 🅓 <option D>
+
+✅ **Correct Answer:** <A / B / C / D> — <one sentence explanation>
+
+---
 
 Topic: {topic}
 Context: {context}
-
-Quiz:
 """)
 
 

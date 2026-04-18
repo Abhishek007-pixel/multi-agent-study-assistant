@@ -29,7 +29,7 @@ def chat_groq_70b() -> ChatGroq:
             "GROQ_API_KEY is not set. Create a `.env` file in the project root "
             "(copy from `.env.example`) and add your Groq API key."
         )
-    return ChatGroq(model="llama3-70b-8192", api_key=key)
+    return ChatGroq(model="llama-3.3-70b-versatile", api_key=key)
 
 
 def chat_groq_8b() -> ChatGroq:
@@ -39,4 +39,4 @@ def chat_groq_8b() -> ChatGroq:
             "GROQ_API_KEY is not set. Create a `.env` file in the project root "
             "(copy from `.env.example`) and add your Groq API key."
         )
-    return ChatGroq(model="llama3-8b-8192", api_key=key)
+    return ChatGroq(model="llama-3.1-8b-instant", api_key=key)
